@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+
+<ScrollPane hbarPolicy="NEVER" prefHeight="730.0" prefWidth="1010.0" stylesheets="@estilos.css" vbarPolicy="ALWAYS" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.EditarAutoController">
+   <content>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="870.0" prefWidth="1000.0" style="-fx-background-color: #0D050E;">
+         <children>
+            <ImageView fitHeight="137.0" fitWidth="111.0" layoutX="47.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Logo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="223.0" layoutY="59.0" text="¡Bienvenido al editor de vehículos," textFill="WHITE">
+               <font>
+                  <Font name="Kristen ITC" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblUser" layoutX="223.0" layoutY="94.0" prefHeight="41.0" prefWidth="544.0" text="a" textFill="#a3445d">
+               <font>
+                  <Font name="Kristen ITC" size="25.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="545.0" layoutY="205.0" prefHeight="634.0" prefWidth="422.0" style="-fx-background-color: #2B193E;">
+               <children>
+                  <TextField fx:id="tfPlaca" alignment="CENTER" layoutX="135.0" layoutY="32.0" prefHeight="29.0" prefWidth="234.0" promptText="Ej: GBC123">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="53.0" layoutY="36.0" text="PLACA:" textFill="WHITE">
+                     <font>
+                        <Font name="Century Gothic" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="53.0" layoutY="78.0" text="PRECIO:" textFill="WHITE">
+                     <font>
+                        <Font name="Century Gothic" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="53.0" layoutY="120.0" text="MARCA:" textFill="WHITE">
+                     <font>
+                        <Font name="Century Gothic" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="53.0" layoutY="162.0" text="MODELO:" textFill="WHITE">
+                     <font>
+                        <Font name="Century Gothic" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="53.0" layoutY="204.0" text="TIPO:" textFill="WHITE">
+                     <font>
+                        <Font name="Century Gothic" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="53.0" layoutY="246.0" text="AÑO:" textFill="WHITE">
+                     <font>
+                        <Font name="Century Gothic" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="53.0" layoutY="288.0" text="KILOMETRAJE:" textFill="WHITE">
+                     <font>
+                        <Font name="Century Gothic" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="53.0" layoutY="330.0" text="MOTOR:" textFill="WHITE">
+                     <font>
+                        <Font name="Century Gothic" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="53.0" layoutY="372.0" text="TRANSMISIÓN:" textFill="WHITE">
+                     <font>
+                        <Font name="Century Gothic" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="53.0" layoutY="414.0" text="PESO:" textFill="WHITE">
+                     <font>
+                        <Font name="Century Gothic" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="53.0" layoutY="456.0" text="UBICACIÓN:" textFill="WHITE">
+                     <font>
+                        <Font name="Century Gothic" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="53.0" layoutY="498.0" text="ESTADO:" textFill="WHITE">
+                     <font>
+                        <Font name="Century Gothic" size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tfPrecio" alignment="CENTER" layoutX="135.0" layoutY="73.0" prefHeight="29.0" prefWidth="234.0" promptText="Precio">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </TextField>
+                  <ComboBox fx:id="cbMarca" layoutX="135.0" layoutY="115.0" onAction="#cargarModelo" prefHeight="29.0" prefWidth="234.0" promptText="Marca" />
+                  <ComboBox fx:id="cbModelo" layoutX="144.0" layoutY="157.0" prefHeight="29.0" prefWidth="225.0" promptText="Modelos" />
+                  <ComboBox fx:id="cbTipo" layoutX="111.0" layoutY="199.0" prefHeight="29.0" prefWidth="258.0" promptText="Tipo" />
+                  <TextField fx:id="tfAnio" alignment="CENTER" layoutX="111.0" layoutY="241.0" prefHeight="29.0" prefWidth="258.0" promptText="Año">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="tfKM" alignment="CENTER" layoutX="175.0" layoutY="283.0" prefHeight="29.0" prefWidth="195.0" promptText="Kilometraje">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </TextField>
+                  <ComboBox fx:id="cbMotor" layoutX="135.0" layoutY="325.0" prefHeight="29.0" prefWidth="234.0" promptText="Motor" />
+                  <ComboBox fx:id="cbTransmision" layoutX="175.0" layoutY="367.0" prefHeight="29.0" prefWidth="195.0" promptText="Transmisión" />
+                  <TextField fx:id="tfPeso" alignment="CENTER" layoutX="111.0" layoutY="409.0" prefHeight="29.0" prefWidth="258.0" promptText="Peso (en kg)">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </TextField>
+                  <ComboBox fx:id="cbUbicacion" layoutX="164.0" layoutY="451.0" prefHeight="29.0" prefWidth="203.0" promptText="Ubicación" />
+                  <ComboBox fx:id="cbEstado" layoutX="135.0" layoutY="493.0" prefHeight="29.0" prefWidth="234.0" promptText="Estado" />
+                  <Button layoutX="84.0" layoutY="548.0" mnemonicParsing="false" onAction="#abrirReporte" styleClass="btnGeneral" stylesheets="@estilos.css" text="REPORTE DE ACCIDENTES Y REPARACIONES" />
+                  <Button layoutX="83.0" layoutY="580.0" mnemonicParsing="false" onAction="#eliminarAuto" styleClass="btnGeneral" stylesheets="@estilos.css" text="ELIMINAR VEHÍCULO" />
+                  <Button fx:id="btonGuardar" layoutX="272.0" layoutY="580.0" mnemonicParsing="false" onMouseClicked="#guardarAuto" styleClass="btnGeneral" stylesheets="@estilos.css" text="GUARDAR" />
+                  <Button fx:id="btnError" layoutX="27.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="395.0" styleClass="textError" stylesheets="@estilos.css" text="Correo no encontrado :C" textAlignment="CENTER" textFill="WHITE" visible="false">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font>
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <Button fx:id="btnSubirImagen" layoutX="213.0" layoutY="272.0" mnemonicParsing="false" onAction="#subirImagen" styleClass="btnGeneral" stylesheets="@estilos.css" text="CARGA TU IMAGEN" />
+            <Button fx:id="btnRegresar" layoutX="860.0" layoutY="152.0" mnemonicParsing="false" onAction="#regresar" prefHeight="29.0" prefWidth="107.0" styleClass="btnInit" stylesheets="@estilos.css" text="REGRESAR" />
+            <ImageView fx:id="ivAdelante" fitHeight="55.0" fitWidth="49.0" layoutX="305.0" layoutY="742.0" onMouseClicked="#adelanteImagen" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+               <image>
+                  <Image url="@derecha.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="ivAtras" fitHeight="65.0" fitWidth="49.0" layoutX="189.0" layoutY="742.0" onMouseClicked="#atrasImagen" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+               <image>
+                  <Image url="@izquierda.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lblImagenes" layoutX="258.0" layoutY="755.0" text="0/0" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="19.0" />
+               </font>
+            </Label>
+            <StackPane layoutX="38.0" layoutY="313.0" prefHeight="417.0" prefWidth="470.0">
+               <children>
+                  <ImageView fx:id="ivFotoAuto" fitHeight="417.0" fitWidth="470.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@preview.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </StackPane>
+            <ImageView fx:id="ivQuitarImagen" fitHeight="60.0" fitWidth="58.0" layoutX="38.0" layoutY="243.0" onMouseClicked="#eliminarFoto" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+               <image>
+                  <Image url="@Trash.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>

@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<ScrollPane hbarPolicy="NEVER" prefHeight="730.0" prefWidth="1010.0" stylesheets="@estilos.css" vbarPolicy="ALWAYS" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.UsuarioController">
+   <content>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="870.0" prefWidth="1000.0" style="-fx-background-color: #0D050E;">
+         <children>
+            <Button fx:id="btnError" layoutX="136.0" layoutY="302.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="750.0" styleClass="textError" stylesheets="@estilos.css" text="No hay páginas que mostrar" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Button>
+            <ImageView fitHeight="137.0" fitWidth="111.0" layoutX="275.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Logo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="398.0" layoutY="52.0" stylesheets="@estilos.css" text="¡Bienvenido," textFill="WHITE">
+               <font>
+                  <Font name="Kristen ITC" size="19.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblUser" layoutX="517.0" layoutY="47.0" prefHeight="41.0" prefWidth="351.0" text="a" textFill="#a3445d">
+               <font>
+                  <Font name="Kristen ITC" size="19.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="13.0" layoutY="41.0" prefHeight="245.0" prefWidth="257.0" style="-fx-background-color: #2B193E;">
+               <children>
+                  <Text fx:id="txtEncuentreAutoSuenios" fill="WHITE" layoutX="17.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¡Encuentre un auto según sus necesidades!" textAlignment="CENTER" wrappingWidth="213.0859375">
+                     <font>
+                        <Font name="Kristen ITC" size="17.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="cmModelo" layoutX="131.0" layoutY="60.0" onMouseClicked="#VerificarModelo" prefHeight="25.0" prefWidth="122.0" promptText="Modelo" />
+                  <TextField fx:id="tfPrecioDesde" layoutX="2.0" layoutY="97.0" prefHeight="25.0" prefWidth="122.0" promptText="Precio desde">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="tfPrecioHasta" layoutX="131.0" layoutY="97.0" prefHeight="25.0" prefWidth="122.0" promptText="Precio hasta">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="tfKMDesde" layoutX="2.0" layoutY="134.0" prefHeight="25.0" prefWidth="122.0" promptText="Kilometraje desde">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="tfKMHasta" layoutX="131.0" layoutY="134.0" prefHeight="25.0" prefWidth="122.0" promptText="Kilometraje hasta" />
+                  <Button fx:id="btnBuscar" layoutX="92.0" layoutY="207.0" mnemonicParsing="false" onAction="#filtroAvanzado" prefHeight="29.0" prefWidth="65.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="BUSCAR" />
+                  <ImageView fx:id="borrarFiltro" fitHeight="34.0" fitWidth="40.0" layoutX="213.0" layoutY="205.0" onMouseClicked="#limpiarCampos" onMousePressed="#limpiarCampos" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+      
+                     <image>
+                        <Image url="@borrarfiltro.png" />
+                     </image>
+                  </ImageView>
+                  <ComboBox fx:id="cbTipo" layoutX="63.0" layoutY="171.0" prefHeight="25.0" prefWidth="122.0" promptText="Tipo" />
+                  <ImageView fx:id="filtroAvanzado" fitHeight="34.0" fitWidth="40.0" layoutX="8.0" layoutY="205.0" onMouseClicked="#ordenarAutoPorReporte" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                     <image>
+                        <Image url="@filtroavanzado.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <ComboBox fx:id="cmMarca" layoutX="15.0" layoutY="102.0" onAction="#cargarModelo" prefHeight="25.0" prefWidth="122.0" promptText="Marca" />
+            <ComboBox fx:id="cbOrdenar" layoutX="753.0" layoutY="166.0" prefHeight="25.0" prefWidth="151.0" promptText="Ordenar por" />
+            <Button fx:id="btnAplicar" layoutX="904.0" layoutY="166.0" mnemonicParsing="false" onAction="#ordenarAutoPorXCriterio" prefHeight="25.0" prefWidth="74.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="APLICAR" textAlignment="CENTER" />
+            <TextField fx:id="tfBusqueda" layoutX="398.0" layoutY="93.0" prefHeight="29.0" prefWidth="316.0" promptText="Buscar por ejemplo: Chevrolet Sail 2012">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font>
+            </TextField>
+            <ImageView fx:id="buscar" fitHeight="45.0" fitWidth="35.0" layoutX="712.0" layoutY="91.0" onMouseClicked="#buscar" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+               <image>
+                  <Image url="@Buscar.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnCrearAuto" layoutX="762.0" layoutY="93.0" mnemonicParsing="false" onAction="#mostrarCrearAuto" prefHeight="34.0" prefWidth="141.0" styleClass="btnGeneral" stylesheets="@estilos.css" text="VENDE TU VEHÍCULO">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font>
+            </Button>
+            <MenuBar fx:id="menuBar" layoutX="913.0" layoutY="93.0" prefHeight="34.0" prefWidth="65.0" stylesheets="@estilos.css">
+              <menus>
+                <Menu mnemonicParsing="false" text="MÁS">
+                     <items>
+                        <MenuItem fx:id="menuMisAutos" mnemonicParsing="false" onAction="#mostrarMisAutos" text="MIS VEHÍCULOS" />
+                        <MenuItem fx:id="menuFav" mnemonicParsing="false" onAction="#mostrarFavoritos" text="FAVORITOS" />
+                     </items>
+                </Menu>
+              </menus>
+               <styleClass>
+                  <String fx:value="menu" />
+                  <String fx:value="menu-item" />
+                  <String fx:value="menu-bar" />
+               </styleClass>
+            </MenuBar>
+            <Button fx:id="btnCerrarSesion" layoutX="37.0" layoutY="816.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="29.0" prefWidth="107.0" stylesheets="@estilos.css" text="CERRAR SESIÓN">
+               <styleClass>
+                  <String fx:value="btnGeneral" />
+                  <String fx:value="btnInit" />
+               </styleClass>
+            </Button>
+            <ImageView fx:id="mostrarAutosAdelante" fitHeight="47.0" fitWidth="45.0" layoutX="940.0" layoutY="506.0" onMouseClicked="#mostrarAutosAdelante" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+               <image>
+                  <Image url="@derecha.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="mostrarAutosAtras" fitHeight="47.0" fitWidth="45.0" layoutX="14.0" layoutY="506.0" onMouseClicked="#mostrarAutosAtras" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+               <image>
+                  <Image url="@izquierda.png" />
+               </image>
+            </ImageView>
+            <GridPane layoutX="115.0" layoutY="331.0" prefHeight="209.0" prefWidth="770.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="127.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="66.0" minHeight="0.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="36.0" minHeight="0.0" prefHeight="22.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="21.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="36.0" minHeight="0.0" prefHeight="19.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <StackPane prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <HBox alignment="CENTER" spacing="10.0">
+                           <children>
+                              <CheckBox fx:id="c1" mnemonicParsing="false" visible="false" />
+                              <ImageView fx:id="imgAuto1" fitHeight="124.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                                 <image>
+                                    <Image url="@preview.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="1">
+                     <children>
+                        <Label fx:id="tituloAuto1" text="Marca - Modelo" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="2">
+                     <children>
+                        <HBox alignment="CENTER">
+                           <children>
+                              <Label fx:id="anioAuto1" text="Año " textFill="WHITE">
+                                 <font>
+                                    <Font name="Century Gothic" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="kmAutos1" text=" 0 Kms " textFill="WHITE">
+                                 <font>
+                                    <Font name="Century Gothic" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="4">
+                     <children>
+                        <Label fx:id="precioAuto1" text="\$PRECIO" textFill="WHITE" />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1">
+                     <children>
+                        <HBox alignment="CENTER" spacing="10.0">
+                           <children>
+                              <CheckBox fx:id="c2" mnemonicParsing="false" visible="false" />
+                              <ImageView fx:id="imgAuto2" fitHeight="132.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                                 <image>
+                                    <Image url="@preview.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Label fx:id="tituloAuto2" text="Marca - Modelo" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <children>
+                        <Label fx:id="precioAuto2" text="\$PRECIO" textFill="WHITE" />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                     <children>
+                        <Label fx:id="precioAuto3" text="\$PRECIO" textFill="WHITE" />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2">
+                     <children>
+                        <HBox alignment="CENTER" spacing="10.0">
+                           <children>
+                              <CheckBox fx:id="c3" mnemonicParsing="false" visible="false" />
+                              <ImageView fx:id="imgAuto3" fitHeight="128.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                                 <image>
+                                    <Image url="@preview.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="3">
+                     <children>
+                        <Label fx:id="provAuto1" text="Provincia" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <children>
+                        <Label fx:id="tituloAuto3" text="Marca - Modelo" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <HBox alignment="CENTER">
+                           <children>
+                              <Label fx:id="anioAuto2" text="Año " textFill="WHITE">
+                                 <font>
+                                    <Font name="Century Gothic" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="kmAutos2" text=" 0 Kms " textFill="WHITE">
+                                 <font>
+                                    <Font name="Century Gothic" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <children>
+                        <HBox alignment="CENTER">
+                           <children>
+                              <Label fx:id="anioAuto3" text="Año " textFill="WHITE">
+                                 <font>
+                                    <Font name="Century Gothic" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="kmAutos3" text=" 0 Kms " textFill="WHITE">
+                                 <font>
+                                    <Font name="Century Gothic" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <children>
+                        <Label fx:id="provAuto2" text="Provincia" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <children>
+                        <Label fx:id="provAuto3" text="Provincia" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+               </children>
+            </GridPane>
+            <GridPane layoutX="115.0" layoutY="573.0" prefHeight="209.0" prefWidth="770.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="127.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="66.0" minHeight="0.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="36.0" minHeight="0.0" prefHeight="22.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="21.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="36.0" minHeight="0.0" prefHeight="19.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <StackPane prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <HBox alignment="CENTER" spacing="10.0">
+                           <children>
+                              <CheckBox fx:id="c4" mnemonicParsing="false" visible="false" />
+                              <ImageView fx:id="imgAuto4" fitHeight="124.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                                 <image>
+                                    <Image url="@preview.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="1">
+                     <children>
+                        <Label fx:id="tituloAuto4" text="Marca - Modelo" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="2">
+                     <children>
+                        <HBox alignment="CENTER">
+                           <children>
+                              <Label fx:id="anioAuto4" text="Año " textFill="WHITE">
+                                 <font>
+                                    <Font name="Century Gothic" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="kmAutos4" text=" 0 Kms " textFill="WHITE">
+                                 <font>
+                                    <Font name="Century Gothic" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="4">
+                     <children>
+                        <Label fx:id="precioAuto4" text="\$PRECIO" textFill="WHITE" />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1">
+                     <children>
+                        <HBox alignment="CENTER" spacing="10.0">
+                           <children>
+                              <CheckBox fx:id="c5" mnemonicParsing="false" visible="false" />
+                              <ImageView fx:id="imgAuto5" fitHeight="132.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                                 <image>
+                                    <Image url="@preview.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Label fx:id="tituloAuto5" text="Marca - Modelo" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <children>
+                        <Label fx:id="precioAuto5" text="\$PRECIO" textFill="WHITE" />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                     <children>
+                        <Label fx:id="precioAuto6" text="\$PRECIO" textFill="WHITE" />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2">
+                     <children>
+                        <HBox alignment="CENTER" spacing="10.0">
+                           <children>
+                              <CheckBox fx:id="c6" mnemonicParsing="false" visible="false" />
+                              <ImageView fx:id="imgAuto6" fitHeight="128.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                                 <image>
+                                    <Image url="@preview.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="3">
+                     <children>
+                        <Label fx:id="provAuto4" text="Provincia" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <children>
+                        <Label fx:id="tituloAuto6" text="Marca - Modelo" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <HBox alignment="CENTER">
+                           <children>
+                              <Label fx:id="anioAuto5" text="Año " textFill="WHITE">
+                                 <font>
+                                    <Font name="Century Gothic" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="kmAutos5" text=" 0 Kms " textFill="WHITE">
+                                 <font>
+                                    <Font name="Century Gothic" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <children>
+                        <HBox alignment="CENTER">
+                           <children>
+                              <Label fx:id="anioAuto6" text="Año " textFill="WHITE">
+                                 <font>
+                                    <Font name="Century Gothic" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="kmAutos6" text=" 0 Kms " textFill="WHITE">
+                                 <font>
+                                    <Font name="Century Gothic" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <children>
+                        <Label fx:id="provAuto5" text="Provincia" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <children>
+                        <Label fx:id="provAuto6" text="Provincia" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+               </children>
+            </GridPane>
+            <Button layoutX="436.0" layoutY="164.0" mnemonicParsing="false" onAction="#filtroAvanzado" prefHeight="29.0" prefWidth="151.0" styleClass="btnComparador" stylesheets="@estilos.css" text="COMPARAR AUTOS" />
+            <Label fx:id="msg1" layoutX="403.0" layoutY="225.0" opacity="0.72" prefHeight="21.0" prefWidth="431.0" styleClass="textError" stylesheets="@estilos.css" text="Recuerde que el filtro avanzado basado en reportes muestra los autos" textFill="WHITE" underline="true" visible="false">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+            <Label fx:id="msg2" layoutX="339.0" layoutY="246.0" opacity="0.72" prefHeight="21.0" prefWidth="578.0" styleClass="textError" stylesheets="@estilos.css" text="de mayor calidad a menor calidad. Solo aquellos autos que tengan reportes se mostrarán." textFill="WHITE" underline="true" visible="false">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+            <CheckBox fx:id="checkCalidad" layoutX="372.0" layoutY="823.0" mnemonicParsing="false" onMouseClicked="#checkExcelenteCalidad" text="Mostrar solo autos de excelente calidad" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font>
+            </CheckBox>
+      
+            <Button fx:id="btnComparar" layoutX="436.0" layoutY="164.0" mnemonicParsing="false" onAction="#mostrarCheck" prefHeight="29.0" prefWidth="151.0" styleClass="btnComparador" stylesheets="@estilos.css" text="COMPARAR AUTOS" />
+            <Button fx:id="btnListo" layoutX="436.0" layoutY="164.0" mnemonicParsing="false" onAction="#mostrarComparar" prefHeight="29.0" prefWidth="151.0" styleClass="btnComparador" stylesheets="@estilos.css" text="Listo!" />
+            <ImageView fx:id="btnCancelar" fitHeight="34.0" fitWidth="40.0" layoutX="597.0" layoutY="162.0" onMouseClicked="#quitarChecks" onMousePressed="#limpiarCampos" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+               <image>
+                  <Image url="@x-png-18.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>

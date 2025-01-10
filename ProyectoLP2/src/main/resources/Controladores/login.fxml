@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<ScrollPane hbarPolicy="NEVER" prefHeight="700.0" prefWidth="1010.0" styleClass="scroll-bar" stylesheets="@estilos.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.LoginController">
+   <content>
+      <AnchorPane id="AnchorPane" prefHeight="870.0" prefWidth="1000.0" style="-fx-background-color: #0D050E;">
+         <children>
+            <TextField fx:id="tfCorreo" alignment="CENTER" layoutX="388.0" layoutY="477.0" prefHeight="33.0" prefWidth="225.0" promptText="Correo/Usuario">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="pfContraseña" alignment="CENTER" layoutX="388.0" layoutY="525.0" prefHeight="33.0" prefWidth="225.0" promptText="Contraseña">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font>
+            </PasswordField>
+            <Button fx:id="btnIniciarSesion" layoutX="447.0" layoutY="584.0" mnemonicParsing="false" onAction="#iniciarSesion" prefHeight="27.0" prefWidth="110.0" styleClass="btnInit" stylesheets="@estilos.css" text="INICIAR SESIÓN">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Button>
+            <Button fx:id="btCrearCuenta" layoutX="434.0" layoutY="678.0" mnemonicParsing="false" onAction="#mostrarRegister" styleClass="links" stylesheets="@estilos.css" text="Crear una cuenta" textFill="#ffb6b6" underline="true">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="236.0" fitWidth="225.0" layoutX="408.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Logo.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="342.0" layoutY="667.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿No tienes una cuenta en GuayacoCar?">
+               <font>
+                  <Font name="Century Gothic" size="16.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="27.0" fitWidth="624.0" layoutX="271.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Conduce%20el%20auto%20de%20tus.gif" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnError" layoutX="364.0" layoutY="448.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="275.0" styleClass="textError" stylesheets="@estilos.css" text="Correo no encontrado :C" textAlignment="CENTER" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Button>
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>
